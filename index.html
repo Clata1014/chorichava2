@@ -761,14 +761,16 @@
                 content: "";
                 position: absolute;
                 inset: 0;
-                background: url("Choricito.png?t=20251117") center / contain no-repeat;
-                background-color: #7FB8D4;
-                box-shadow: inset 0 0 80px rgba(127, 184, 212, 0.3);
-                z-index: -1;
+                background: linear-gradient(180deg, #89BDD8 0%, #7AB5CE 50%, #75B0CC 100%);
+                z-index: -2;
             }
 
             .hero::after {
-                display: none;
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("Choricito.png?t=20251117") center / contain no-repeat;
+                z-index: -1;
             }
 
             .logo {
