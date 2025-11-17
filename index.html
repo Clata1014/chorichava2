@@ -748,7 +748,7 @@
             .hero {
                 min-height: 100vh;
                 padding: 50px 0 0 0;
-                background: transparent;
+                background: white;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -760,7 +760,10 @@
             .hero::before {
                 content: "";
                 position: absolute;
-                inset: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 65vh;
                 background: linear-gradient(90deg, #89BDD8 0%, #7AB5CE 50%, #75B0CC 100%);
                 z-index: -2;
             }
@@ -768,7 +771,10 @@
             .hero::after {
                 content: "";
                 position: absolute;
-                inset: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 65vh;
                 background: url("Choricito.png?t=20251117") center top / contain no-repeat;
                 z-index: -1;
             }
@@ -805,8 +811,9 @@
             }
 
             .about {
-                padding: 15px 20px 40px 20px;
+                padding: 0px 20px 40px 20px;
                 background: white;
+                margin-top: -50px;
             }
 
             .about h2, .products h2, .contact h2 {
