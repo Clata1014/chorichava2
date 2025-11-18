@@ -746,9 +746,9 @@
             }
 
             .hero {
-                min-height: 100vh;
-                padding: 50px 0 0 0;
-                background: transparent;
+                min-height: auto;
+                padding: 0;
+                background: white;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -768,17 +768,19 @@
             .hero::after {
                 content: "";
                 position: absolute;
-                inset: 0;
-                background: url("Choricito.png?t=20251117") center top / contain no-repeat;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 250px;
+                background: url("Portada.jpeg") center top / cover no-repeat;
                 z-index: -1;
             }
 
             .logo {
                 width: 320px;
-                margin: -30px 0 0 0;
+                margin: 270px 0 20px 0;
                 padding: 0;
                 filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
-                animation: floatLogo 3s ease-in-out infinite;
                 z-index: 10;
             }
 
@@ -807,7 +809,7 @@
             .about {
                 padding: 0px 20px 40px 20px;
                 background: white;
-                margin-top: -150px;
+                margin-top: 0px;
             }
 
             .about h2, .products h2, .contact h2 {
