@@ -752,28 +752,22 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
                 position: relative;
-                overflow: hidden;
             }
 
             .hero::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: white;
-                z-index: -2;
-            }
-
-            .hero::after {
                 content: "";
                 position: absolute;
                 top: 0;
                 left: 0;
                 right: 0;
                 height: 250px;
-                background: url("Portada.jpeg") center top / cover no-repeat;
-                z-index: -1;
+                background: url("Portada.jpeg") center center / cover no-repeat;
+                z-index: 0;
+            }
+
+            .hero::after {
+                display: none;
             }
 
             .logo {
