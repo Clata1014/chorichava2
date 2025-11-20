@@ -374,7 +374,7 @@
             position: relative;
             width: 100vw;
             margin: 0;
-            padding: 0;
+            padding: 50px 20px 30px;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -385,19 +385,18 @@
             overflow: hidden;
             left: 50%;
             margin-left: -50vw;
-            background-image: url("Horizontal.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
 
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
+            background-image: url("Horizontal.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             filter: brightness(1.30);
             z-index: -2;
-            background: transparent;
         }
 
         .hero::after {
