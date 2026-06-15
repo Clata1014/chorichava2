@@ -16,8 +16,8 @@
            ========================================================================== */
         :root {
             --primary: #0F2942;       /* Azul marino elegante */
-            --accent: #FF5E2A;        /* Naranja vibrante de los botones */
-            --bg-light: #F4F6F9;      /* Gris blanquecino de fondo de la captura */
+            --accent: #FF5E2A;        /* Naranja vibrante */
+            --bg-light: #F4F6F9;      /* Gris blanquecino de fondo */
             --white: #FFFFFF;
             --text-muted: #667085;    /* Gris de los textos descriptivos */
             --topbar-bg: #0C2132;     /* Color oscuro de la barra superior */
@@ -307,7 +307,7 @@
             margin: 0 auto;
         }
 
-        /* Columna de Información (Izquierda) */
+        /* Columna Izquierda (Información) */
         .hero-text {
             display: flex;
             flex-direction: column;
@@ -344,44 +344,12 @@
             font-weight: 700;
         }
 
-        /* Texto descriptivo idéntico de la captura */
-        .hero-description {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            max-width: 520px;
-        }
-
-        /* Botón "KNOW MORE ->" */
-        .btn-know-more {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 15px 32px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-            align-self: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .btn-know-more:hover {
-            background-color: var(--primary);
-        }
-
-        /* Bloque de Métricas (Vertical en celular, horizontal en PC) */
+        /* Bloque de Métricas */
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            margin-top: 40px;
+            margin-top: 20px;
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
         }
@@ -467,7 +435,7 @@
         }
 
         /* ==========================================================================
-           COLUMNA DERECHA: ESPACIO DE VIDEO E IMAGEN (PC)
+           COLUMNA DERECHA: ESPACIO DE VIDEO (PC)
            ========================================================================== */
         .hero-video-wrapper {
             position: relative;
@@ -560,11 +528,11 @@
         }
 
         /* ==========================================================================
-           RESPONSIVE DESIGN (Pantalla Celular - Ajuste de Video Primero)
+           RESPONSIVE DESIGN (Pantalla Celular - Video de Primero sin scroll)
            ========================================================================== */
         @media (max-width: 992px) {
             
-            /* Ocultar elementos exclusivos de PC */
+            /* Ocultar elementos de PC */
             .top-bar, nav.desktop-nav, .header-right .header-phone, .header-right .btn-get-touch {
                 display: none;
             }
@@ -578,16 +546,16 @@
                 padding: 15px 5%;
             }
 
-            /* Estructura vertical perfectamente ordenada */
+            /* Estructura vertical optimizada */
             .hero {
                 display: flex;
                 flex-direction: column;
-                gap: 35px;
-                padding: 40px 6%;
+                gap: 25px; /* Espacio más ajustado para evitar scroll innecesario */
+                padding: 30px 6%;
                 min-height: auto;
             }
 
-            /* 1. SECCIÓN DE TEXTO SUPERIOR (Título y Botón) */
+            /* 1. EL TÍTULO VA DE PRIMERO */
             .hero-text {
                 order: 1;
                 text-align: left;
@@ -596,29 +564,14 @@
             }
 
             .hero-title {
-                font-size: 2.3rem;
-                margin-bottom: 12px;
+                font-size: 2.1rem;
+                margin-bottom: 10px;
                 text-align: left;
             }
 
-            /* Texto descriptivo recortado para celular */
-            .hero-description {
-                font-size: 0.95rem;
-                margin-bottom: 25px;
-                max-width: 100%;
-                text-align: left;
-            }
-
-            .btn-know-more {
-                align-self: flex-start !important;
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-
-            /* 2. EL VIDEO SE UBICA AQUÍ (Abajo del botón "KNOW MORE") */
+            /* 2. EL VIDEO VA INMEDIATAMENTE ABAJO DEL TÍTULO (¡Súper visible de una!) */
             .hero-video-wrapper {
-                order: 2; /* Segundo lugar */
+                order: 2; /* Segundo lugar, justo después del título */
                 display: block; 
                 height: auto;
                 width: 100%;
@@ -635,16 +588,16 @@
                 border-radius: 20px;
             }
 
-            /* Se ocultan los círculos solapados en celular para evitar que rompan el diseño */
+            /* Se ocultan los círculos solapados en celular para limpiar el espacio */
             .circles-wrapper {
                 display: none; 
             }
 
-            /* 3. LAS MÉTRICAS (Verticales intactas como en la captura) */
+            /* 3. LAS MÉTRICAS INTACTAS (Se muestran debajo del video) */
             .stats {
                 order: 3; /* Tercer lugar */
                 width: 100%;
-                grid-template-columns: 1fr; /* Estructura vertical limpia */
+                grid-template-columns: 1fr; /* Estructura vertical idéntica a su captura */
                 gap: 20px;
                 margin-top: 15px;
                 padding-top: 25px;
@@ -753,7 +706,7 @@
     <!-- CUADRÍCULA HERO -->
     <main class="hero">
         
-        <!-- Columna del Video (En celular se muestra de SEGUNDA, después del botón "KNOW MORE") -->
+        <!-- Columna del Video (En celular se muestra de SEGUNDA, justo abajo del título) -->
         <section class="hero-video-wrapper">
             
             <video autoplay loop muted playsinline controls class="main-hero-video-placeholder">
@@ -776,20 +729,13 @@
 
         </section>
 
-        <!-- Columna de Información (En celular se divide para que el texto y botón vayan arriba del video) -->
+        <!-- Columna de Información -->
         <section class="hero-text">
             <div class="badge">Perfect for you</div>
             
             <h1 class="hero-title">Independent Real Estate Group.</h1>
-            
-            <!-- Texto descriptivo recortado para que se vea más limpio en celular -->
-            <p class="hero-description">
-                Aliquam vehicula sed nisi et posuere. Fusce elementum, orci et tincidunt.
-            </p>
-            
-            <a href="#" class="btn-know-more">Know More →</a>
 
-            <!-- Métricas (Dejadas intactas en vertical para celular como en la captura) -->
+            <!-- Métricas (Dejadas intactas en vertical para celular como en su captura) -->
             <div class="stats">
                 <div class="stat-item">
                     <h3>1250+</h3>
