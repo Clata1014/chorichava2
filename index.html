@@ -593,27 +593,33 @@
                 min-height: auto;
             }
 
-            /* Se "disuelve" el contenedor para intercalar el video entre los textos */
+            /* Columna de texto: flujo natural de lectura (badge → título → descripción → botón) */
             .hero-text {
-                display: contents;
+                order: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                width: 100%;
             }
 
-            /* Orden vertical en celular: badge → video → botón → título → descripción */
-            .badge { order: 1; margin-bottom: 0; }
-            .hero-video-wrapper { order: 2; }
-            .btn-know-more { order: 3; }
-            .hero-title { order: 4; }
-            .hero-description { order: 5; }
+            .hero-video-wrapper {
+                order: 2; /* El video va al final, debajo del botón */
+            }
+
+            .badge {
+                margin-bottom: 14px;
+            }
 
             .hero-title {
                 font-size: 1.7rem;
-                margin-bottom: 0;
+                margin-bottom: 12px;
                 text-align: left;
             }
 
             .hero-description {
                 font-size: 0.95rem;
-                margin-bottom: 0;
+                margin-bottom: 18px;
                 max-width: 100%;
                 text-align: left;
             }
@@ -623,7 +629,7 @@
                 width: 100%;
                 max-width: 290px;
                 justify-content: center;
-                margin: 16px 0 6px 0;
+                margin: 0;
             }
 
             /* Las métricas (Verticales intactas como en su captura) */
@@ -792,7 +798,6 @@
 
             <h1 class="hero-title">Tu espacio · Tu estilo · Tu inversión</h1>
 
-            <!-- Texto Lorem Ipsum original completo -->
             <p class="hero-description">
                 Una nueva forma de disfrutar la vida después de los 60
             </p>
