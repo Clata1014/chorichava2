@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revero - Torre Ars Medellín</title>
+    <title>Revero - Independent Real Estate Group</title>
     
     <!-- Fuentes originales de Revero -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
 
     <style>
         /* ==========================================================================
-           PALETA DE COLORES ORIGINAL DE REVERO
+           VARIABLES DE DISEÑO (Estilo Revero)
            ========================================================================== */
         :root {
             --primary: #0F2942;       /* Azul marino elegante */
@@ -21,7 +21,6 @@
             --white: #FFFFFF;
             --text-muted: #667085;    /* Gris de los textos descriptivos */
             --topbar-bg: #0C2132;     /* Color oscuro de la barra superior */
-            --border-color: #D0D5DD;  /* Línea divisoria */
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -94,7 +93,7 @@
             z-index: 100;
         }
 
-        /* Logo Revero con casita naranja */
+        /* Logo Revero con casita en SVG */
         .logo {
             display: flex;
             align-items: center;
@@ -307,7 +306,7 @@
             margin: 0 auto;
         }
 
-        /* Columna de Información (Izquierda) */
+        /* Columna Izquierda (Información) */
         .hero-text {
             display: flex;
             flex-direction: column;
@@ -337,7 +336,7 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.4rem, 4.5vw, 4rem);
+            font-size: clamp(2.4rem, 4.5vw, 4.2rem);
             color: var(--primary);
             line-height: 1.15;
             margin-bottom: 22px;
@@ -375,37 +374,93 @@
             background-color: var(--primary);
         }
 
-        /* NUEVA CUADRÍCULA DE ESPECIFICACIONES (Aprovecha el espacio al máximo) */
-        .specs-grid {
+        /* Bloque de Métricas */
+        .stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #D0D5DD;
         }
 
-        .spec-item {
+        .stat-item h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Reputación y Estrellas */
+        .rating-block {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .avatar-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            margin-left: -12px;
+            background-color: #D0D5DD;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .avatar-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--white);
+            margin-left: -12px;
+        }
+
+        .rating-info {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
         }
 
-        .spec-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .spec-value {
+        .stars {
+            color: #FDB022;
             font-size: 0.95rem;
+            letter-spacing: -1px;
+        }
+
+        .rating-text {
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--primary);
         }
 
-        /* Columna de Video (Derecha) */
+        /* ==========================================================================
+           COLUMNA DERECHA: ESPACIO DE VIDEO E IMAGEN
+           ========================================================================== */
         .hero-video-wrapper {
             position: relative;
             height: 560px;
@@ -449,7 +504,6 @@
             transition: var(--transition);
         }
 
-        /* Fotos de ambientación del render */
         .circle-1 {
             background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=80');
             z-index: 1;
@@ -461,7 +515,6 @@
             z-index: 2;
         }
 
-        /* Botón circular azul marino de Revero con flecha */
         .circle-3 {
             margin-left: -35px;
             z-index: 3;
@@ -499,100 +552,7 @@
         }
 
         /* ==========================================================================
-           SECCIÓN DE TIPOLOGÍAS Y PRECIOS (Estilo Revero)
-           ========================================================================== */
-        .pricing-section {
-            padding: 40px 8% 80px 8%;
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-
-        .pricing-section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 35px;
-            text-align: left;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .price-card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 35px;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .price-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(15, 41, 66, 0.05);
-        }
-
-        .price-card-badge {
-            position: absolute;
-            top: 35px;
-            right: 35px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        .price-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .price-card-title span {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-left: 5px;
-        }
-
-        .price-card-amount {
-            font-size: 1.8rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-card-amount span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
-        }
-
-        .price-card-text {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ==========================================================================
-           RESPONSIVE DESIGN (Celular - Optimizado al 100%)
+           OPTIMIZACIÓN Y CORRECCIÓN TOTAL PARA CELULARES
            ========================================================================== */
         @media (max-width: 992px) {
             
@@ -610,7 +570,7 @@
                 padding: 15px 5%;
             }
 
-            /* Reestructuración vertical limpia */
+            /* Estructura vertical perfectamente ordenada */
             .hero {
                 display: flex;
                 flex-direction: column;
@@ -619,33 +579,9 @@
                 min-height: auto;
             }
 
-            /* EL VIDEO DE PRIMERO EN CELULAR */
-            .hero-video-wrapper {
-                order: 1; /* Sube a la posición principal */
-                display: block; 
-                height: auto;
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
-                position: relative;
-            }
-
-            .main-hero-video-placeholder {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/10;
-                display: block;
-                border-radius: 20px;
-            }
-
-            /* Círculos superpuestos ocultos en celular para evitar amontonamientos */
-            .circles-wrapper {
-                display: none; /* Eliminado completamente del celular */
-            }
-
-            /* EL TEXTO DE SEGUNDO */
+            /* SECCIÓN 1: El texto en la parte superior del celular */
             .hero-text {
-                order: 2; /* Pasa abajo del video */
+                order: 1;
                 text-align: left;
                 align-items: flex-start;
                 width: 100%;
@@ -671,51 +607,80 @@
                 justify-content: center;
             }
 
-            /* Especificaciones técnicas de Torre Ars en 2 columnas muy ordenadas */
-            .specs-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+            /* SECCIÓN 2: El Video centrado abajo del texto */
+            .hero-video-wrapper {
+                order: 2;
+                display: block; /* Desactiva el comportamiento de fila heredado de PC */
+                height: auto;
                 width: 100%;
-                margin-top: 15px;
+                max-width: 500px; /* Tamaño responsivo óptimo */
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .main-hero-video-placeholder {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10; /* Evita que el video se aplaste o deforme */
+                display: block;
+                border-radius: 20px;
+            }
+
+            /* SECCIÓN 3: Los círculos alineados de forma simétrica */
+            .circles-wrapper {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                display: flex;
+                justify-content: center; /* Alineación central impecable */
+                margin: -35px auto 0 auto; /* Solapamiento vertical exacto con la base del video */
+                width: 100%;
+                z-index: 10;
+            }
+
+            .circle-item {
+                width: 100px;
+                height: 100px;
+                border: 4px solid var(--white);
+            }
+
+            /* Ajuste del margen de solapado para pantallas pequeñas */
+            .circle-2, .circle-3 {
+                margin-left: -25px; 
+            }
+
+            /* SECCIÓN 4: Métricas al final */
+            .stats {
+                order: 3;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin-top: 20px;
                 padding-top: 20px;
             }
 
-            .spec-value {
-                font-size: 0.95rem;
+            .stat-item h3 {
+                font-size: 1.4rem;
             }
 
-            /* Sección de tipologías en celular */
-            .pricing-section {
-                padding: 20px 6% 60px 6%;
+            .stat-item p {
+                font-size: 0.75rem;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .price-card {
-                padding: 25px;
-            }
-
-            .price-card-title {
-                font-size: 2.1rem;
-            }
-
-            .price-card-amount {
-                font-size: 1.6rem;
-            }
-
-            .price-card-badge {
-                top: 25px;
-                right: 25px;
+            /* SECCIÓN 5: Reputación al final de la página */
+            .rating-block {
+                order: 4;
+                justify-content: flex-start;
+                margin-top: 20px;
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .specs-grid {
-                grid-template-columns: 1fr; /* Una sola columna en celulares extremadamente pequeños */
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
     </style>
@@ -725,8 +690,8 @@
     <!-- BARRA SUPERIOR (TOP BAR) -->
     <div class="top-bar">
         <div class="top-bar-left">
-            <span>📍 Belén Los Alpes, Medellín</span>
-            <span>✉️ <a href="mailto:ventas@torrears.com">ventas@torrears.com</a></span>
+            <span>📍 250 Main Street, 2nd Floor. USA</span>
+            <span>✉️ <a href="mailto:example@gmail.com">example@gmail.com</a></span>
         </div>
         <div class="top-bar-right">
             <a href="#">f</a>
@@ -748,11 +713,12 @@
         
         <!-- Enlaces del Menú (PC) -->
         <nav class="desktop-nav">
-            <a href="#">Estilo de vida</a>
-            <a href="#">Servicios</a>
-            <a href="#">Amenidades</a>
-            <a href="#">El edificio</a>
-            <a href="#">Ubicación</a>
+            <a href="#">Home</a>
+            <a href="#">Property</a>
+            <a href="#">About Us</a>
+            <a href="#">Pages</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact Us</a>
         </nav>
 
         <!-- Bloque de llamadas y botón (PC) -->
@@ -781,11 +747,12 @@
     <!-- MENÚ LATERAL DESPLEGABLE (Celular) -->
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-links">
-            <a href="#">Estilo de vida</a>
-            <a href="#">Servicios</a>
-            <a href="#">Amenidades</a>
-            <a href="#">El edificio</a>
-            <a href="#">Ubicación</a>
+            <a href="#">Home</a>
+            <a href="#">Property</a>
+            <a href="#">About Us</a>
+            <a href="#">Pages</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact Us</a>
         </div>
         <div class="mobile-menu-footer">
             <div class="header-phone" style="display: flex;">
@@ -799,105 +766,75 @@
         </div>
     </div>
 
-    <!-- SECCIÓN DE BIENVENIDA -->
+    <!-- CUADRÍCULA HERO -->
     <main class="hero">
         
-        <!-- Columna del Video (Se muestra de PRIMERA en celular) -->
+        <!-- Columna de Información (Se muestra de primera en celular) -->
+        <section class="hero-text">
+            <div class="badge">Perfect for you</div>
+            
+            <h1 class="hero-title">Independent Real Estate Group.</h1>
+            
+            <p class="hero-description">
+                Aliquam vehicula sed nisi et posuere. Fusce elementum, orci et tincidunt fermentum erat, nec volutpat est lacus ut nisl. Integer vel rhoncus n placerat turpis vitae quam.
+            </p>
+            
+            <a href="#" class="btn-know-more">Know More →</a>
+
+            <!-- Métricas -->
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>1250+</h3>
+                    <p>Listed Properties</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3500+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Awards & Rewards</p>
+                </div>
+            </div>
+
+            <!-- Bloque de Reputación y Estrellas -->
+            <div class="rating-block">
+                <div class="avatar-group">
+                    <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80');"></div>
+                    <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80');"></div>
+                    <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80');"></div>
+                    <div class="avatar-badge">10K+</div>
+                </div>
+                <div class="rating-info">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.8 Top rated</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Columna del Video (Se muestra centrada abajo del texto en celular) -->
         <section class="hero-video-wrapper">
+            
             <video autoplay loop muted playsinline controls class="main-hero-video-placeholder">
                 <source src="video.mp4" type="video/mp4">
                 Su navegador no soporta reproducción de video.
             </video>
 
-            <!-- Círculos superpuestos del estilo Revero (Se muestran solo en PC) -->
+            <!-- Círculos superpuestos del estilo Revero (Centrados bajo el video en celular) -->
             <div class="circles-wrapper">
                 <div class="circle-item circle-1"></div>
                 <div class="circle-item circle-2"></div>
                 <a href="#" class="circle-item circle-3">
-                    <span>Torre<br>Ars</span>
+                    <span>View All<br>Properties</span>
                     <svg viewBox="0 0 24 24">
                         <line x1="7" y1="17" x2="17" y2="7" />
                         <polyline points="9 7 17 7 17 15" />
                     </svg>
                 </a>
             </div>
+
         </section>
-
-        <!-- Columna de Información (Se muestra de SEGUNDA en celular) -->
-        <section class="hero-text">
-            <div class="badge">PREVENTA - MEDELLÍN</div>
-            
-            <h1 class="hero-title">Contemporánea en el corazón de Medellín.</h1>
-            
-            <p class="hero-description">
-                Bienvenidos a Torre Ars. Un desarrollo de vanguardia diseñado para ofrecerle el máximo confort, con lobby exclusivo, zona de bicicletas y acabados premium en cada espacio.
-            </p>
-            
-            <a href="#" class="btn-know-more">Know More →</a>
-
-            <!-- NUEVA CUADRÍCULA DE ESPECIFICACIONES (Aprovechamiento de espacio óptimo) -->
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <span class="spec-label">Ubicación</span>
-                    <span class="spec-value">Belén Los Alpes, Medellín</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Tipología</span>
-                    <span class="spec-value">Unidades independientes</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Áreas</span>
-                    <span class="spec-value">22 m² y 44 m² (flexibles)</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Niveles</span>
-                    <span class="spec-value">12 niveles</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">N.º de unidades</span>
-                    <span class="spec-value">33 unidades</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Entrega estimada</span>
-                    <span class="spec-value">Diciembre de 2027</span>
-                </div>
-            </div>
-        </section>
-
     </main>
-
-    <!-- SECCIÓN DE TIPOLOGÍAS Y PRECIOS -->
-    <section class="pricing-section">
-        <h2 class="pricing-section-title">Tipologías Disponibles</h2>
-        
-        <div class="pricing-grid">
-            
-            <!-- Tipología 22m2 -->
-            <div class="price-card">
-                <span class="price-card-badge">11 Unidades</span>
-                <h3 class="price-card-title">22 m²</h3>
-                <div class="price-card-amount">
-                    <span>DESDE</span> $200.000.000
-                </div>
-                <p class="price-card-text">
-                    Un espacio eficiente y cómodo, ideal para una vida práctica y sin complicaciones en una excelente ubicación.
-                </p>
-            </div>
-
-            <!-- Tipología 44m2 -->
-            <div class="price-card">
-                <span class="price-card-badge">22 Unidades</span>
-                <h3 class="price-card-title">44 m² <span>flexibles</span></h3>
-                <div class="price-card-amount">
-                    <span>DESDE</span> $320.000.000
-                </div>
-                <p class="price-card-text">
-                    Más amplitud y flexibilidad para adaptarlo por completo a tus necesidades y estilo de vida.
-                </p>
-            </div>
-
-        </div>
-    </section>
 
     <!-- ==========================================================================
          JAVASCRIPT: Control interactivo del menú móvil
