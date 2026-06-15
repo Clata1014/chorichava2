@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -104,7 +103,7 @@
             color: var(--primary);
             text-decoration: none;
             letter-spacing: 0.5px;
-            z-index: 102; /* Mantener por encima del menú móvil */
+            z-index: 102;
         }
 
         .logo svg {
@@ -194,11 +193,9 @@
             transform: translateY(-1px);
         }
 
-        /* ==========================================================================
-           NUEVO: BOTÓN HAMBURGUESA ("Las rayitas del menú" para celular)
-           ========================================================================== */
+        /* BOTÓN HAMBURGUESA (Celular) */
         .menu-toggle {
-            display: none; /* Oculto en PC por defecto */
+            display: none;
             flex-direction: column;
             justify-content: space-between;
             width: 26px;
@@ -206,7 +203,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 105; /* Por encima de todo */
+            z-index: 105;
         }
 
         .menu-toggle span {
@@ -218,7 +215,6 @@
             transition: var(--transition);
         }
 
-        /* Transformación del icono a una "X" al abrir el menú */
         .menu-toggle.active span:nth-child(1) {
             transform: translateY(7px) rotate(45deg);
         }
@@ -231,16 +227,14 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* ==========================================================================
-           NUEVO: PANEL DEL MENÚ PARA CELULARES (Desplegable lateral)
-           ========================================================================== */
+        /* PANEL DEL MENÚ DESPLEGABLE (Celular) */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(12, 33, 50, 0.5); /* Fondo oscuro translúcido */
+            background-color: rgba(12, 33, 50, 0.5);
             z-index: 998;
             display: none;
         }
@@ -252,7 +246,7 @@
         .mobile-menu {
             position: fixed;
             top: 0;
-            right: -100%; /* Oculto a la derecha por defecto */
+            right: -100%;
             width: 80%;
             max-width: 320px;
             height: 100vh;
@@ -267,7 +261,7 @@
         }
 
         .mobile-menu.active {
-            right: 0; /* Desliza hacia adentro */
+            right: 0;
         }
 
         .mobile-menu-links {
@@ -298,7 +292,7 @@
         }
 
         /* ==========================================================================
-           HERO SECTION (Estructura Base)
+           HERO SECTION (PC)
            ========================================================================== */
         .hero {
             position: relative;
@@ -312,7 +306,7 @@
             margin: 0 auto;
         }
 
-        /* Columna de Texto (Izquierda) */
+        /* Columna Izquierda (Información) */
         .hero-text {
             display: flex;
             flex-direction: column;
@@ -403,7 +397,7 @@
             font-weight: 500;
         }
 
-        /* Bloque de reputación (Avatares + Estrellas de Revero) */
+        /* Reputación y Estrellas */
         .rating-block {
             display: flex;
             align-items: center;
@@ -465,7 +459,7 @@
         }
 
         /* ==========================================================================
-           COLUMNA DERECHA: ESPACIO DE VIDEO E IMAGEN (Cover)
+           COLUMNA DERECHA: ESPACIO DE VIDEO E IMAGEN
            ========================================================================== */
         .hero-video-wrapper {
             position: relative;
@@ -482,12 +476,10 @@
             object-fit: cover;
             border-radius: 24px;
             box-shadow: 0 20px 45px rgba(15, 41, 66, 0.12);
-            background-color: #1D2939; /* Color de fondo temporal */
+            background-color: #1D2939;
         }
 
-        /* ==========================================================================
-           CÍRCULOS SUPERPUESTOS INTERACTIVOS (Sello de Revero)
-           ========================================================================== */
+        /* CÍRCULOS SUPERPUESTOS INTERACTIVOS (PC) */
         .circles-wrapper {
             position: absolute;
             left: -80px;
@@ -560,16 +552,16 @@
         }
 
         /* ==========================================================================
-           RESPONSIVE DESIGN (Pantalla Celular)
+           OPTIMIZACIÓN Y CORRECCIÓN TOTAL PARA CELULARES
            ========================================================================== */
         @media (max-width: 992px) {
             
-            /* Ocultar elementos de PC */
+            /* Ocultar elementos exclusivos de PC */
             .top-bar, nav.desktop-nav, .header-right .header-phone, .header-right .btn-get-touch {
                 display: none;
             }
 
-            /* Mostrar botón hamburguesa en celular */
+            /* Mostrar botón hamburguesa */
             .menu-toggle {
                 display: flex;
             }
@@ -578,62 +570,94 @@
                 padding: 15px 5%;
             }
 
-            /* Cambia la cuadrícula a un solo bloque apilado */
+            /* Estructura vertical perfectamente ordenada */
             .hero {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 40px;
-                padding: 40px 5%;
+                padding: 40px 6%;
                 min-height: auto;
             }
 
-            /* El bloque de texto se ubica abajo en celular */
+            /* SECCIÓN 1: El texto en la parte superior del celular */
             .hero-text {
-                text-align: center;
-                align-items: center;
-                order: 2;
+                order: 1;
+                text-align: left;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+                margin-bottom: 16px;
+                text-align: left;
             }
 
             .hero-description {
-                margin-left: auto;
-                margin-right: auto;
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+                max-width: 100%;
+                text-align: left;
             }
 
             .btn-know-more {
-                align-self: center !important;
+                align-self: flex-start !important;
                 width: 100%;
-                max-width: 290px;
+                max-width: 280px;
                 justify-content: center;
             }
 
-            /* El espacio de video se ubica arriba para impacto inmediato en celulares */
+            /* SECCIÓN 2: El Video centrado abajo del texto */
             .hero-video-wrapper {
-                height: 320px;
-                order: 1;
-                justify-content: center;
+                order: 2;
+                display: block; /* Desactiva el comportamiento de fila heredado de PC */
+                height: auto;
+                width: 100%;
+                max-width: 500px; /* Tamaño responsivo óptimo */
+                margin: 0 auto;
+                position: relative;
             }
 
-            /* Los círculos de Revero se centran debajo del video */
+            .main-hero-video-placeholder {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10; /* Evita que el video se aplaste o deforme */
+                display: block;
+                border-radius: 20px;
+            }
+
+            /* SECCIÓN 3: Los círculos alineados de forma simétrica */
             .circles-wrapper {
                 position: relative;
                 left: 0;
                 top: 0;
                 transform: none;
-                justify-content: center;
-                margin: 20px 0 0 0;
+                display: flex;
+                justify-content: center; /* Alineación central impecable */
+                margin: -35px auto 0 auto; /* Solapamiento vertical exacto con la base del video */
                 width: 100%;
+                z-index: 10;
             }
 
             .circle-item {
-                width: 95px;
-                height: 95px;
+                width: 100px;
+                height: 100px;
+                border: 4px solid var(--white);
             }
 
-            /* Métricas adaptadas */
+            /* Ajuste del margen de solapado para pantallas pequeñas */
+            .circle-2, .circle-3 {
+                margin-left: -25px; 
+            }
+
+            /* SECCIÓN 4: Métricas al final */
             .stats {
+                order: 3;
                 width: 100%;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
-                margin-top: 35px;
+                margin-top: 20px;
+                padding-top: 20px;
             }
 
             .stat-item h3 {
@@ -644,10 +668,12 @@
                 font-size: 0.75rem;
             }
 
-            /* Reputación centrada en celular */
+            /* SECCIÓN 5: Reputación al final de la página */
             .rating-block {
-                justify-content: center;
-                margin-top: 25px;
+                order: 4;
+                justify-content: flex-start;
+                margin-top: 20px;
+                width: 100%;
             }
         }
 
@@ -706,7 +732,7 @@
             </div>
             <a href="#" class="btn-get-touch">Get in Touch →</a>
 
-            <!-- BOTÓN HAMBURGUESA (Solo visible en Celular) -->
+            <!-- BOTÓN HAMBURGUESA (Celular) -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -743,7 +769,7 @@
     <!-- CUADRÍCULA HERO -->
     <main class="hero">
         
-        <!-- Columna de Información (Izquierda) -->
+        <!-- Columna de Información (Se muestra de primera en celular) -->
         <section class="hero-text">
             <div class="badge">Perfect for you</div>
             
@@ -786,7 +812,7 @@
             </div>
         </section>
 
-        <!-- Columna del Video (Derecha) -->
+        <!-- Columna del Video (Se muestra centrada abajo del texto en celular) -->
         <section class="hero-video-wrapper">
             
             <video autoplay loop muted playsinline controls class="main-hero-video-placeholder">
@@ -794,7 +820,7 @@
                 Su navegador no soporta reproducción de video.
             </video>
 
-            <!-- Círculos superpuestos del estilo Revero -->
+            <!-- Círculos superpuestos del estilo Revero (Centrados bajo el video en celular) -->
             <div class="circles-wrapper">
                 <div class="circle-item circle-1"></div>
                 <div class="circle-item circle-2"></div>
@@ -818,13 +844,11 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
-        // Función para alternar el menú (abrir / cerrar)
         function toggleMenu() {
             menuToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             mobileMenuOverlay.classList.toggle('active');
             
-            // Evita que el fondo de la página se desplace cuando el menú móvil está abierto
             if (mobileMenu.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -832,10 +856,8 @@
             }
         }
 
-        // Eventos para abrir o cerrar al presionar los componentes correspondientes
         menuToggle.addEventListener('click', toggleMenu);
         mobileMenuOverlay.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
-```
