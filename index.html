@@ -598,10 +598,10 @@
                 display: contents;
             }
 
-            /* Orden vertical en celular: badge → botón → video → título → descripción */
+            /* Orden vertical en celular: badge → video → botón → título → descripción */
             .badge { order: 1; }
-            .btn-know-more { order: 2; }
-            .hero-video-wrapper { order: 3; }
+            .hero-video-wrapper { order: 2; }
+            .btn-know-more { order: 3; }
             .hero-title { order: 4; }
             .hero-description { order: 5; }
 
@@ -652,7 +652,7 @@
 
             /* El espacio de video se ubica de forma limpia al final */
             .hero-video-wrapper {
-                order: 3; /* Va entre el título y el botón */
+                order: 2; /* Justo debajo del badge */
                 display: block;
                 height: auto;
                 width: 100%;
