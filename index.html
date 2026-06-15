@@ -315,25 +315,19 @@
             justify-content: center;
         }
 
+        /* Etiqueta tipo "pastilla" elegante (fondo gris claro, texto azul) */
         .badge {
-            color: var(--accent);
+            color: var(--primary);
+            background-color: #F1F5F9;          /* gris muy clarito (bg-slate-100) */
+            border: 1px solid #E2E8F0;          /* borde sutil (border-slate-200) */
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .badge::before {
-            content: "";
+            padding: 6px 16px;
+            border-radius: 9999px;              /* pastilla (rounded-full) */
             display: inline-block;
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
-            border-radius: 50%;
         }
 
         .hero-title {
@@ -345,18 +339,18 @@
             font-weight: 700;
         }
 
-        /* Texto Lorem Ipsum original completo */
         .hero-description {
-            color: var(--text-muted);
+            color: #1F2937;                 /* gris oscuro (text-gray-800) */
+            font-weight: 500;               /* font-medium */
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 35px;
             max-width: 520px;
         }
 
-        /* Botón "KNOW MORE ->" */
+        /* Botón "AGENDA TU CITA AQUÍ" (azul fijo por defecto) */
         .btn-know-more {
-            background-color: var(--accent);
+            background-color: var(--primary);
             color: var(--white);
             padding: 15px 32px;
             border-radius: 4px;
@@ -374,7 +368,7 @@
         }
 
         .btn-know-more:hover {
-            background-color: var(--primary);
+            background-color: #0A1C2E;
         }
 
         /* Bloque de Métricas (Vertical en celular, horizontal en PC) */
