@@ -587,28 +587,33 @@
             .hero {
                 display: flex;
                 flex-direction: column;
-                gap: 6px;
+                align-items: flex-start;
+                gap: 10px;
                 padding: 30px 6%;
                 min-height: auto;
             }
 
-            /* Columna de texto e información vertical */
+            /* Se "disuelve" el contenedor para intercalar el video entre los textos */
             .hero-text {
-                order: 1;
-                text-align: left;
-                align-items: flex-start;
-                width: 100%;
+                display: contents;
             }
+
+            /* Orden vertical en celular: badge → título → video → botón → descripción */
+            .badge { order: 1; }
+            .hero-title { order: 2; }
+            .hero-video-wrapper { order: 3; }
+            .btn-know-more { order: 4; }
+            .hero-description { order: 5; }
 
             .hero-title {
                 font-size: 1.7rem;
-                margin-bottom: 16px;
+                margin-bottom: 4px;
                 text-align: left;
             }
 
             .hero-description {
                 font-size: 0.95rem;
-                margin-bottom: 25px;
+                margin-bottom: 0;
                 max-width: 100%;
                 text-align: left;
             }
@@ -647,12 +652,12 @@
 
             /* El espacio de video se ubica de forma limpia al final */
             .hero-video-wrapper {
-                order: 2; /* Se posiciona al final del flujo */
+                order: 3; /* Va entre el título y el botón */
                 display: block;
                 height: auto;
                 width: 100%;
                 max-width: 500px;
-                margin: 2px auto 0 auto;
+                margin: 4px 0 0 0;
                 position: relative;
             }
 
