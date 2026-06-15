@@ -1,37 +1,3 @@
-¡Ahora sí le entiendo perfectamente! Disculpe la confusión anterior.
-
-Su propuesta es excelente y muy acertada para la experiencia de usuario (UX) en
-celulares. Eliminar el texto descriptivo (Aliquam vehicula...) y el botón
-naranja (KNOW MORE) para colocar el video justo debajo del título principal es
-una decisión de diseño de alto nivel.
-
-¿Se vería bien?
-
-Sí, se vería espectacular y mucho más profesional. Al entrar desde el celular,
-el cliente verá inmediatamente el título de la empresa y, justo debajo (sin
-necesidad de hacer scroll o deslizar hacia abajo), el video reproduciéndose "de
-una". Esto genera un impacto visual inmediato y aumenta la retención, ya que el
-video de la torre es lo más atractivo del sitio.
-
-Debajo del video, de forma limpia, quedarán las estadísticas verticales (1250+,
-3500+, 100+) y la reputación con las estrellas intactas.
-
-Código Actualizado (Todo Intacto, con el Video al Inicio en Celular)
-
-He limpiado el código eliminando el párrafo y el botón naranja, y programando la
-estructura para que:
-
-  - En PC: El título y las estadísticas queden a la izquierda de forma muy
-    elegante, y el video con sus tres círculos superpuestos quede a la derecha
-    (idéntico al diseño de Revero que le gustó).
-  - En Celular: El video suba automáticamente para ubicarse directamente debajo
-    del título, logrando que se vea completo y reproduciéndose al instante de
-    entrar a la web.
-
-(Nota: Recuerde no incluir las tres comillas invertidas ```html al principio y
-al final cuando cree su archivo index.html para evitar que aparezcan textos
-extraños en su web).
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,8 +16,8 @@ extraños en su web).
            ========================================================================== */
         :root {
             --primary: #0F2942;       /* Azul marino elegante */
-            --accent: #FF5E2A;        /* Naranja vibrante */
-            --bg-light: #F4F6F9;      /* Gris blanquecino de fondo */
+            --accent: #FF5E2A;        /* Naranja vibrante de los botones */
+            --bg-light: #F4F6F9;      /* Gris blanquecino de fondo de la captura */
             --white: #FFFFFF;
             --text-muted: #667085;    /* Gris de los textos descriptivos */
             --topbar-bg: #0C2132;     /* Color oscuro de la barra superior */
@@ -378,12 +344,44 @@ extraños en su web).
             font-weight: 700;
         }
 
-        /* Bloque de Métricas */
+        /* Texto Lorem Ipsum original completo */
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 520px;
+        }
+
+        /* Botón "KNOW MORE ->" */
+        .btn-know-more {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 15px 32px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            align-self: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .btn-know-more:hover {
+            background-color: var(--primary);
+        }
+
+        /* Bloque de Métricas (Vertical en celular, horizontal en PC) */
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
         }
@@ -469,7 +467,7 @@ extraños en su web).
         }
 
         /* ==========================================================================
-           COLUMNA DERECHA: ESPACIO DE VIDEO (PC)
+           COLUMNA DERECHA: ESPACIO DE VIDEO E IMAGEN (PC)
            ========================================================================== */
         .hero-video-wrapper {
             position: relative;
@@ -562,11 +560,11 @@ extraños en su web).
         }
 
         /* ==========================================================================
-           RESPONSIVE DESIGN (Pantalla Celular - Video de Primero sin scroll)
+           RESPONSIVE DESIGN (Pantalla Celular - Ajustada exactamente a la captura)
            ========================================================================== */
         @media (max-width: 992px) {
             
-            /* Ocultar elementos de PC */
+            /* Ocultar elementos exclusivos de PC */
             .top-bar, nav.desktop-nav, .header-right .header-phone, .header-right .btn-get-touch {
                 display: none;
             }
@@ -580,16 +578,16 @@ extraños en su web).
                 padding: 15px 5%;
             }
 
-            /* Estructura vertical optimizada */
+            /* Estructura vertical limpia e idéntica a su captura */
             .hero {
                 display: flex;
                 flex-direction: column;
-                gap: 25px; /* Espacio más ajustado para evitar scroll innecesario */
-                padding: 30px 6%;
+                gap: 30px;
+                padding: 40px 6%;
                 min-height: auto;
             }
 
-            /* 1. EL TÍTULO VA DE PRIMERO */
+            /* Columna de texto e información vertical */
             .hero-text {
                 order: 1;
                 text-align: left;
@@ -598,40 +596,29 @@ extraños en su web).
             }
 
             .hero-title {
-                font-size: 2.1rem;
-                margin-bottom: 10px;
+                font-size: 2.3rem;
+                margin-bottom: 16px;
                 text-align: left;
             }
 
-            /* 2. EL VIDEO VA INMEDIATAMENTE ABAJO DEL TÍTULO (¡Súper visible de una!) */
-            .hero-video-wrapper {
-                order: 2; /* Segundo lugar, justo después del título */
-                display: block; 
-                height: auto;
+            .hero-description {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+                max-width: 100%;
+                text-align: left;
+            }
+
+            .btn-know-more {
+                align-self: flex-start !important;
                 width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
-                position: relative;
+                max-width: 290px;
+                justify-content: center;
             }
 
-            .main-hero-video-placeholder {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/10;
-                display: block;
-                border-radius: 20px;
-            }
-
-            /* Se ocultan los círculos solapados en celular para limpiar el espacio */
-            .circles-wrapper {
-                display: none; 
-            }
-
-            /* 3. LAS MÉTRICAS INTACTAS (Se muestran debajo del video) */
+            /* Las métricas (Verticales intactas como en su captura) */
             .stats {
-                order: 3; /* Tercer lugar */
                 width: 100%;
-                grid-template-columns: 1fr; /* Estructura vertical idéntica a su captura */
+                grid-template-columns: 1fr; /* Estructura de columna vertical limpia */
                 gap: 20px;
                 margin-top: 15px;
                 padding-top: 25px;
@@ -646,12 +633,59 @@ extraños en su web).
                 font-size: 0.85rem;
             }
 
-            /* 4. REPUTACIÓN Y AVATARES */
+            /* Reputación y estrellas */
             .rating-block {
-                order: 4; /* Cuarto lugar */
                 justify-content: flex-start;
                 margin-top: 15px;
                 width: 100%;
+            }
+
+            /* El espacio de video se ubica de forma limpia al final */
+            .hero-video-wrapper {
+                order: 2; /* Se posiciona al final del flujo */
+                display: block; 
+                height: auto;
+                width: 100%;
+                max-width: 500px;
+                margin: 20px auto 0 auto;
+                position: relative;
+            }
+
+            .main-hero-video-placeholder {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10;
+                display: block;
+                border-radius: 20px;
+            }
+
+            /* Se adaptan los círculos superpuestos de forma centrada abajo del video */
+            .circles-wrapper {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                display: flex;
+                justify-content: center;
+                margin: -35px auto 0 auto;
+                width: 100%;
+                z-index: 10;
+            }
+
+            .circle-item {
+                width: 95px;
+                height: 95px;
+            }
+
+            .circle-2, .circle-3 {
+                margin-left: -25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
     </style>
@@ -740,34 +774,18 @@ extraños en su web).
     <!-- CUADRÍCULA HERO -->
     <main class="hero">
         
-        <!-- Columna del Video (En celular se muestra de SEGUNDA, justo abajo del título) -->
-        <section class="hero-video-wrapper">
-            
-            <video autoplay loop muted playsinline controls class="main-hero-video-placeholder">
-                <source src="video.mp4" type="video/mp4">
-                Su navegador no soporta reproducción de video.
-            </video>
-
-            <!-- Círculos superpuestos del estilo Revero (Se muestran solo en PC) -->
-            <div class="circles-wrapper">
-                <div class="circle-item circle-1"></div>
-                <div class="circle-item circle-2"></div>
-                <a href="#" class="circle-item circle-3">
-                    <span>View All<br>Properties</span>
-                    <svg viewBox="0 0 24 24">
-                        <line x1="7" y1="17" x2="17" y2="7" />
-                        <polyline points="9 7 17 7 17 15" />
-                    </svg>
-                </a>
-            </div>
-
-        </section>
-
         <!-- Columna de Información -->
         <section class="hero-text">
             <div class="badge">Perfect for you</div>
             
             <h1 class="hero-title">Independent Real Estate Group.</h1>
+            
+            <!-- Texto Lorem Ipsum original completo -->
+            <p class="hero-description">
+                Aliquam vehicula sed nisi et posuere. Fusce elementum, orci et tincidunt fermentum erat, nec volutpat est lacus ut nisl. Integer vel rhoncus n placerat turpis vitae quam.
+            </p>
+            
+            <a href="#" class="btn-know-more">Know More →</a>
 
             <!-- Métricas (Dejadas intactas en vertical para celular como en su captura) -->
             <div class="stats">
@@ -798,6 +816,29 @@ extraños en su web).
                     <div class="rating-text">4.8 Top rated</div>
                 </div>
             </div>
+        </section>
+
+        <!-- Columna del Video (Se muestra centrada abajo del contenido en celular) -->
+        <section class="hero-video-wrapper">
+            
+            <video autoplay loop muted playsinline controls class="main-hero-video-placeholder">
+                <source src="video.mp4" type="video/mp4">
+                Su navegador no soporta reproducción de video.
+            </video>
+
+            <!-- Círculos superpuestos del estilo Revero -->
+            <div class="circles-wrapper">
+                <div class="circle-item circle-1"></div>
+                <div class="circle-item circle-2"></div>
+                <a href="#" class="circle-item circle-3">
+                    <span>View All<br>Properties</span>
+                    <svg viewBox="0 0 24 24">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="9 7 17 7 17 15" />
+                    </svg>
+                </a>
+            </div>
+
         </section>
     </main>
 
