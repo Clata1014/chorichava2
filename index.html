@@ -83,33 +83,29 @@
            CABECERA / MENÚ DE NAVEGACIÓN (PC)
            ========================================================================== */
         header {
-            background-color: var(--white);
+            background-color: var(--primary);
             padding: 22px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #E4E7EC;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        /* Logo Revero con casita naranja */
+        /* Logo oficial Torre ARS (imagen) */
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
             text-decoration: none;
-            letter-spacing: 0.5px;
             z-index: 102;
         }
 
-        .logo svg {
-            width: 32px;
-            height: 32px;
+        .logo img {
+            height: 40px;          /* md:h-10 */
+            width: auto;
+            object-fit: contain;
         }
 
         /* Enlaces del Menú en PC */
@@ -120,7 +116,7 @@
         }
 
         nav.desktop-nav a {
-            color: var(--primary);
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.85rem;
@@ -160,12 +156,12 @@
         }
 
         .header-phone-text p {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.75rem;
         }
 
         .header-phone-text a {
-            color: var(--primary);
+            color: var(--white);
             font-weight: 700;
             text-decoration: none;
         }
@@ -211,7 +207,7 @@
             display: block;
             width: 100%;
             height: 3px;
-            background-color: var(--primary);
+            background-color: var(--white);
             border-radius: 4px;
             transition: var(--transition);
         }
@@ -342,7 +338,7 @@
         .hero-description {
             color: #1F2937;                 /* gris oscuro (text-gray-800) */
             font-weight: 500;               /* font-medium */
-            font-size: 0.95rem;
+            font-size: 1.125rem;            /* text-lg */
             line-height: 1.6;
             margin-bottom: 35px;
             max-width: 520px;
@@ -577,6 +573,11 @@
                 padding: 15px 5%;
             }
 
+            /* Logo un poco más pequeño en celular (h-8) */
+            .logo img {
+                height: 32px;
+            }
+
             /* Estructura vertical limpia e idéntica a su captura */
             .hero {
                 display: flex;
@@ -612,7 +613,7 @@
             }
 
             .hero-description {
-                font-size: 0.95rem;
+                font-size: 1.125rem;
                 margin-bottom: 18px;
                 max-width: 100%;
                 text-align: left;
@@ -720,12 +721,9 @@
 
     <!-- CABECERA PRINCIPAL -->
     <header>
-        <!-- Logo Revero -->
+        <!-- Logo oficial Torre ARS -->
         <a href="#" class="logo">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 21V12.5M20 12L12 4L4 12M12 4V20M9 20H15" stroke="#FF5E2A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            REVERO
+            <img src="torrearsloguito.webp" alt="Torre ARS" class="logo-img">
         </a>
         
         <!-- Enlaces del Menú (PC) -->
@@ -793,7 +791,7 @@
             <h1 class="hero-title">Tu espacio · Tu estilo · Tu inversión</h1>
 
             <p class="hero-description">
-                Una nueva forma de disfrutar la vida después de los 60
+                Una nueva forma de disfrutar la vida después de los 60.
             </p>
             
             <a href="#" class="btn-know-more">Agenda tu cita aquí →</a>
